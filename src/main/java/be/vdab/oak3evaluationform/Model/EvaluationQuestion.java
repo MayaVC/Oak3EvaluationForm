@@ -1,13 +1,13 @@
 package be.vdab.oak3evaluationform.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-@Entity
 public class EvaluationQuestion {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
     @NotNull
     private int evaluationId;
     @NotNull
@@ -17,7 +17,8 @@ public class EvaluationQuestion {
     @NotNull
     private EnumScore score;
 
-    public EvaluationQuestion() {
+    public EvaluationQuestion(int evaluationId) {
+        this.evaluationId = evaluationId;
     }
 
     public int getEvaluationId() {
