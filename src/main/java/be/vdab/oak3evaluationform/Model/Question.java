@@ -1,10 +1,12 @@
 package be.vdab.oak3evaluationform.Model;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
+@Entity
 public class Question {
 
     @Id

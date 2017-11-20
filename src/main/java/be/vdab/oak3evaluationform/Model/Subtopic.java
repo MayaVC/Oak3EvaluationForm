@@ -9,8 +9,7 @@ public class Subtopic {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int Id;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @NotNull
     private int topicId;
     @NotNull
     private String name;

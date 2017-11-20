@@ -13,6 +13,7 @@ public class Evaluation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    @NotNull
     private int studentId;
     @NotNull
     private Date date;
