@@ -12,18 +12,16 @@ public class Evaluation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int id;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    int studenId;
+    private int id;
+    private int studentId;
     @NotNull
-    Date date;
+    private Date date;
     @NotNull
-    int instructorId;
+    private int instructorId;
     @NotNull
-    int courseId;
+    private int courseId;
     @NotNull
-    String comments;
+    private String comments;
 
     public Evaluation() {
     }
@@ -36,12 +34,12 @@ public class Evaluation {
         this.id = id;
     }
 
-    public int getStudenId() {
-        return studenId;
+    public int getStudentId() {
+        return studentId;
     }
 
-    public void setStudenId(int studenId) {
-        this.studenId = studenId;
+    public void setStudentId(int studenId) {
+        this.studentId = studenId;
     }
 
     public Date getDate() {
@@ -80,7 +78,7 @@ public class Evaluation {
     public String toString() {
         return "Evaluation{" +
                 "id=" + id +
-                ", studenId=" + studenId +
+                ", studenId=" + studentId +
                 ", date=" + date +
                 ", instructorId=" + instructorId +
                 ", courseId=" + courseId +
