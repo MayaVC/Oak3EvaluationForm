@@ -17,8 +17,7 @@ public class EvaluationQuestion {
     @NotNull
     private EnumScore score;
 
-    public EvaluationQuestion(int evaluationId) {
-        this.evaluationId = evaluationId;
+    public EvaluationQuestion() {
     }
 
     public int getEvaluationId() {
