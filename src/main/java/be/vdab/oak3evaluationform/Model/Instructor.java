@@ -15,7 +15,6 @@ public class Instructor {
 
     @NotNull
     private String name;
-
     public Instructor() {
     }
 
