@@ -11,9 +11,9 @@ public class Topic {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int id;
+    private int id;
     @NotNull
-    String name;
+    private String name;
 
     public Topic() {
     }
