@@ -3,7 +3,6 @@ package be.vdab.oak3evaluationform.Model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-@Entity
 public class EvaluationQuestion {
 
     @Id
