@@ -2,6 +2,6 @@ package be.vdab.oak3evaluationform.Model;
 
 public enum EnumCategory {
 
-    GENRAL, CONTENT, CLASSROOM, INSTRUCTOR
+    GENERAL, CONTENT, CLASSROOM, INSTRUCTOR //Fixed typo door Miel ;)
 
 }
