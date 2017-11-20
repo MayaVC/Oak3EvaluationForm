@@ -12,7 +12,6 @@ public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-
     @NotNull
     private String name;
 

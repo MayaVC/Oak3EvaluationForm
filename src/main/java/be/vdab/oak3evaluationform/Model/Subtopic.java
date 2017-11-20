@@ -8,12 +8,12 @@ public class Subtopic {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int Id;
+    private int Id;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int topicId;
+    private int topicId;
     @NotNull
-    String name;
+    private String name;
 
     public Subtopic() {
     }
