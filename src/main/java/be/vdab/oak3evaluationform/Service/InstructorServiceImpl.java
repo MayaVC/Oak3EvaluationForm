@@ -1,17 +1,17 @@
 package be.vdab.oak3evaluationform.Service;
 
 import be.vdab.oak3evaluationform.Model.Instructor;
-import be.vdab.oak3evaluationform.Repository.InstructorRepository;
+import be.vdab.oak3evaluationform.Repository.InstructorJPARepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class InstructorServiceImpl implements InstructorService {
 
-    private final InstructorRepository instructorRepository;
+    private final InstructorJPARepository instructorRepository;
 
     @Autowired
-    public InstructorServiceImpl(InstructorRepository instructorRepository) {
+    public InstructorServiceImpl(InstructorJPARepository instructorRepository) {
         this.instructorRepository = instructorRepository;
     }
 

@@ -1,13 +1,14 @@
 package be.vdab.oak3evaluationform.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
 public class EvaluationQuestion {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
     @NotNull
     private int evaluationId;
     @NotNull
@@ -53,10 +54,19 @@ public class EvaluationQuestion {
         this.score = score;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return "EvaluationQuestion{" +
-                "evaluationId=" + evaluationId +
+                "id=" + id +
+                ", evaluationId=" + evaluationId +
                 ", categoryId=" + categoryId +
                 ", questionId=" + questionId +
                 ", score=" + score +
