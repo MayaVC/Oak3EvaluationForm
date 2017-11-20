@@ -12,8 +12,7 @@ public class Category {
     @Enumerated(EnumType.STRING)
     private EnumCategory name;
 
-    public Category(EnumCategory name) {
-        this.name = name;
+    public Category() {
     }
 
     public int getId() {

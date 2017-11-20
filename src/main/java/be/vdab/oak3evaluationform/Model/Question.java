@@ -13,8 +13,7 @@ public class Question {
     @NotNull
     private String name;
 
-    public Question(String name) {
-        this.name = name;
+    public Question() {
     }
 
     public int getId() {
