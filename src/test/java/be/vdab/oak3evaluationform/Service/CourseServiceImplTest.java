@@ -8,15 +8,16 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.awt.print.Book;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Oak3evaluationformApplication.class)
+@ActiveProfiles("miel")
 public class CourseServiceImplTest {
 
     private List<Course> courses;
@@ -51,14 +52,12 @@ public class CourseServiceImplTest {
         service.addCourse(course);
         int i = service.deleteCourse(service.findAll().get(service.findAll().size()-1));
         assertThat(i).isEqualTo(1);
-
     }
 
     @Test
     public void testUpdateCourse(){
         service.addCourse(course);
         Course updatedCourse = service.findAll().get(service.findAll().size() - 1);
-        System.out.println(updatedCourse);
         updatedCourse.setName("Java voor noobs");
         int i = service.updateCourse(updatedCourse);
         assertThat(i).isEqualTo(1);
@@ -66,7 +65,8 @@ public class CourseServiceImplTest {
 
     @Test
     public void testFindAll(){
-
+        courses = service.findAll();
+        assertThat(courses).isNotNull();
     }
 
 }

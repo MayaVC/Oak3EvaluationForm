@@ -27,7 +27,7 @@ public class CourseServiceImpl implements CourseService {
     public int deleteCourse(Course course) {
         if(courseJPARepository.exists(course.getId())){
         courseJPARepository.delete(course);}
-        return courseJPARepository.exists(course.getId())?1:0 ;
+        return courseJPARepository.exists(course.getId())?0:1 ;
     }
 
     @Override
