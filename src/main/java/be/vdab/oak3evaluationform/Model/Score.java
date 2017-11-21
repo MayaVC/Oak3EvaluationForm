@@ -1,5 +1,5 @@
 package be.vdab.oak3evaluationform.Model;
 
-public enum EnumScore {
+public enum Score {
     UNSATISFACTORY, WEAK, AVERAGE, GOOD, EXCELLENT
 }

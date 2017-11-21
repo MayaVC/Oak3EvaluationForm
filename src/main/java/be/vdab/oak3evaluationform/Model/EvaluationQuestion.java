@@ -16,7 +16,7 @@ public class EvaluationQuestion {
     @NotNull
     private int questionId;
     @NotNull
-    private EnumScore score;
+    private Score score;
 
     public EvaluationQuestion() {
     }
@@ -46,11 +46,11 @@ public class EvaluationQuestion {
     }
 
     @Enumerated(EnumType.STRING)
-    public EnumScore getScore() {
+    public Score getScore() {
         return score;
     }
 
-    public void setScore(EnumScore score) {
+    public void setScore(Score score) {
         this.score = score;
     }
 

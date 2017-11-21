@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.xml.ws.Service;
-
 @RestController
 @RequestMapping("/instructors")
 public class InstructorController {
@@ -22,6 +20,7 @@ public class InstructorController {
         this.instructorService = instructorService;
     }
 
+    //in controller 1 PostMapping
     @PostMapping
     public int addInstructor(@RequestBody Instructor instructor){
         return instructorService.addInstructor(instructor);
