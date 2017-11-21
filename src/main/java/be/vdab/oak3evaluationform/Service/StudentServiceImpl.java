@@ -26,7 +26,6 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public int deleteStudent(Student student) {
         if(studentJPARepository.exists(student.getId())){
-            studentJPARepository.delete(student);
         studentJPARepository.delete(student);}
         return studentJPARepository.exists(student.getId())?1:0 ;
     }

@@ -25,7 +25,8 @@ public class InstructorServiceImpl implements InstructorService {
 
     @Override
     public int deleteInstructor(Instructor instructor) {
-        instructorJPARepository.delete(instructor);
+        if(instructorJPARepository.exists(instructor.getId())){
+        instructorJPARepository.delete(instructor);}
         return instructorJPARepository.exists(instructor.getId())?1:0 ;
     }
 
