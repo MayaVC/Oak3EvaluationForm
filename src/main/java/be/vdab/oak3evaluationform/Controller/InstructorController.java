@@ -22,6 +22,7 @@ public class InstructorController {
         this.instructorService = instructorService;
     }
 
+    //in controller 1 PostMapping
     @PostMapping
     public int addInstructor(@RequestBody Instructor instructor){
         return instructorService.addInstructor(instructor);

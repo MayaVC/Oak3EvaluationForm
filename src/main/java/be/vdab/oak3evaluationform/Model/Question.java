@@ -1,9 +1,6 @@
 package be.vdab.oak3evaluationform.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -14,6 +11,9 @@ public class Question {
     private int id;
     @NotNull
     private String name;
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private Category category;
 
     public Question() {
     }
@@ -34,11 +34,20 @@ public class Question {
         this.name = name;
     }
 
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
     @Override
     public String toString() {
         return "Question{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", category=" + category +
                 '}';
     }
 }

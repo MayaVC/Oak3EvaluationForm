@@ -1,14 +1,14 @@
 package be.vdab.oak3evaluationform.Mapper;
 
-import be.vdab.oak3evaluationform.Model.EnumCategory;
-import be.vdab.oak3evaluationform.Model.EnumScore;
+import be.vdab.oak3evaluationform.Model.Category;
+import be.vdab.oak3evaluationform.Model.Score;
 
 public class EnumMapper {
 
 
-    public static EnumScore mapToScore(int score){
+    public static Score mapToScore(int score){
 
-        for(EnumScore s : EnumScore.values()){
+        for(Score s : Score.values()){
             if(s.ordinal() == score){
                 return s;
             }
@@ -16,9 +16,9 @@ public class EnumMapper {
         throw new RuntimeException("Score not found!");
     }
 
-    public static EnumCategory mapToCategory(int category){
+    public static Category mapToCategory(int category){
 
-        for(EnumCategory c : EnumCategory.values()){
+        for(Category c : Category.values()){
             if(c.ordinal() == category){
                 return c;
             }
