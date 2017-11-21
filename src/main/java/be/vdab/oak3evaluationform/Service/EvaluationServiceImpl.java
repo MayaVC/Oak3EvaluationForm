@@ -3,9 +3,11 @@ package be.vdab.oak3evaluationform.Service;
 import be.vdab.oak3evaluationform.Model.Evaluation;
 import be.vdab.oak3evaluationform.Repository.EvaluationJPARepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class EvaluationServiceImpl implements EvaluationService {
 
     private final EvaluationJPARepository evaluationJPARepository;
