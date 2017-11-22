@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Oak3evaluationformApplication.class)
-@ActiveProfiles("miel")
+@ActiveProfiles("maya")
 public class EvaluationQuestionServiceImplTest {
 
     private EvaluationQuestion evaluationQuestion;
@@ -31,7 +31,6 @@ public class EvaluationQuestionServiceImplTest {
     public void init() {
         evaluationQuestion = new EvaluationQuestion();
         evaluationQuestion.setEvaluationId(10000);
-        evaluationQuestion.setCategoryId(0);
         evaluationQuestion.setQuestionId(100);
         evaluationQuestion.setScore(Score.AVERAGE);    }
 

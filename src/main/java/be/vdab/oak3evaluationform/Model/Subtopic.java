@@ -10,8 +10,6 @@ public class Subtopic {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int Id;
     @NotNull
-    private int topicId;
-    @NotNull
     private String name;
 
     public Subtopic() {
@@ -23,14 +21,6 @@ public class Subtopic {
 
     public void setId(int id) {
         Id = id;
-    }
-
-    public int getTopicId() {
-        return topicId;
-    }
-
-    public void setTopicId(int topicId) {
-        this.topicId = topicId;
     }
 
     public String getName() {
@@ -45,7 +35,6 @@ public class Subtopic {
     public String toString() {
         return "Subtopic{" +
                 "Id=" + Id +
-                ", topicId=" + topicId +
                 ", name='" + name + '\'' +
                 '}';
     }

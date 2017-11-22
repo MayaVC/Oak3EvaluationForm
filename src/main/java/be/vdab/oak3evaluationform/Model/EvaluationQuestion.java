@@ -12,8 +12,6 @@ public class EvaluationQuestion {
     @NotNull
     private int evaluationId;
     @NotNull
-    private int categoryId;
-    @NotNull
     private int questionId;
     @NotNull
     private Score score;
@@ -27,14 +25,6 @@ public class EvaluationQuestion {
 
     public void setEvaluationId(int evaluationId) {
         this.evaluationId = evaluationId;
-    }
-
-    public int getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
     }
 
     public int getQuestionId() {
@@ -67,7 +57,6 @@ public class EvaluationQuestion {
         return "EvaluationQuestion{" +
                 "id=" + id +
                 ", evaluationId=" + evaluationId +
-                ", categoryId=" + categoryId +
                 ", questionId=" + questionId +
                 ", score=" + score +
                 '}';
