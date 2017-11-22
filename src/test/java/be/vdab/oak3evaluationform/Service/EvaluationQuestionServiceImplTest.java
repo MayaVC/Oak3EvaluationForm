@@ -31,7 +31,7 @@ public class EvaluationQuestionServiceImplTest {
     public void init() {
         evaluationQuestion = new EvaluationQuestion();
         evaluationQuestion.setEvaluationId(10000);
-        evaluationQuestion.setQuestionId(100);
+//        evaluationQuestion.setQuestionId(100);
         evaluationQuestion.setScore(Score.AVERAGE);    }
 
     @After

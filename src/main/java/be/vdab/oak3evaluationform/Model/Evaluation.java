@@ -3,6 +3,8 @@ package be.vdab.oak3evaluationform.Model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.sql.Date;
+import java.util.Set;
+import java.util.TreeSet;
 
 @Entity
 public class Evaluation {
@@ -20,6 +22,10 @@ public class Evaluation {
 //    private int courseId; wordt als foreingkey aangemaakt door hybernate
     @NotNull
     private String comments;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "evaluationQuestion_id")
+    private Set<EvaluationQuestion> evaluationQuestions = new TreeSet<>();
+
 
     public Evaluation() {
     }

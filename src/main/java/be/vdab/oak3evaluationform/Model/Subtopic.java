@@ -2,8 +2,9 @@
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Set;
 
-@Entity
+    @Entity
 public class Subtopic {
 
     @Id
@@ -11,6 +12,8 @@ public class Subtopic {
     private int Id;
     @NotNull
     private String name;
+    @ManyToMany(mappedBy = "subtopics")
+    private Set<Student> students;
 
     public Subtopic() {
     }

@@ -27,6 +27,10 @@ public class Student {
     @JoinColumn(name = "student_id")
     private Set<Evaluation> evaluations = new TreeSet<>();
 
+    @ManyToMany
+    @JoinTable(name = "student_subtopic", joinColumns = @JoinColumn(name = "student_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "subtopic_id", referencedColumnName = "id"))
+    private Set<Subtopic> subtopics;
+
 
     public Student() {
     }
