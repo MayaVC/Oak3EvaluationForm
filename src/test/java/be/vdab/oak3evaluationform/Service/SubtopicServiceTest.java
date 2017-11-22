@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class) //we gaan een springtest uitvoeren, gebruik makend van Junit
 @SpringBootTest(classes = Oak3evaluationformApplication.class) //zorgt ervoor dat de annotatie gestart wordt
-@ActiveProfiles("marco")
+@ActiveProfiles("miel")
 
 public class SubtopicServiceTest {
 

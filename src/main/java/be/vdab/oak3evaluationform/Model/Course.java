@@ -1,10 +1,8 @@
 package be.vdab.oak3evaluationform.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Set;
 
 @Entity
 public class Course {
@@ -14,6 +12,10 @@ public class Course {
     private int id;
     @NotNull
     private String name;
+
+    @ManyToMany
+    @JoinTable(name = "course_instructor", joinColumns = @JoinColumn(name = "instructor_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "course_id", referencedColumnName = "id"))
+    private Set<Instructor> instructors;
 
     public Course() {
     }
@@ -32,6 +34,14 @@ public class Course {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Set<Instructor> getInstructors() {
+        return instructors;
+    }
+
+    public void setInstructors(Set<Instructor> instructors) {
+        this.instructors = instructors;
     }
 
     @Override

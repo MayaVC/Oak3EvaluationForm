@@ -1,10 +1,8 @@
 package be.vdab.oak3evaluationform.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Set;
 
 @Entity
 public class Instructor {
@@ -15,6 +13,9 @@ public class Instructor {
 
     @NotNull
     private String name;
+
+    @ManyToMany(mappedBy = "instructors")
+    private Set<Course> courses;
 
     public Instructor() {
     }
@@ -33,6 +34,14 @@ public class Instructor {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Set<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(Set<Course> courses) {
+        this.courses = courses;
     }
 
     @Override
