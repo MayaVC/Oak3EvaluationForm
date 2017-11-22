@@ -3,6 +3,7 @@ package be.vdab.oak3evaluationform.Model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Set;
+import java.util.TreeSet;
 
 @Entity
 public class Instructor {
@@ -16,6 +17,10 @@ public class Instructor {
 
     @ManyToMany(mappedBy = "instructors")
     private Set<Course> courses;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "instructor_id")
+    private Set<Evaluation> evaluations = new TreeSet<>();
 
     public Instructor() {
     }

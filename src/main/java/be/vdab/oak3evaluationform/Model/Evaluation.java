@@ -1,9 +1,6 @@
 package be.vdab.oak3evaluationform.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.sql.Date;
 
@@ -13,14 +10,14 @@ public class Evaluation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    @NotNull
-    private int studentId;
+//    @NotNull
+//    private int studentId; wordt als foreingkey aangemaakt door hybernate
     @NotNull
     private Date date;
-    @NotNull
-    private int instructorId;
-    @NotNull
-    private int courseId;
+//    @NotNull
+//    private int instructorId; wordt als foreingkey aangemaakt door hybernate
+//    @NotNull
+//    private int courseId; wordt als foreingkey aangemaakt door hybernate
     @NotNull
     private String comments;
 
@@ -35,13 +32,13 @@ public class Evaluation {
         this.id = id;
     }
 
-    public int getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(int studenId) {
-        this.studentId = studenId;
-    }
+//    public int getStudentId() {
+//        return studentId;
+//    }
+//
+//    public void setStudentId(int studenId) {
+//        this.studentId = studenId;
+//    }
 
     public Date getDate() {
         return date;
@@ -51,21 +48,21 @@ public class Evaluation {
         this.date = date;
     }
 
-    public int getInstructorId() {
-        return instructorId;
-    }
-
-    public void setInstructorId(int instructorId) {
-        this.instructorId = instructorId;
-    }
-
-    public int getCourseId() {
-        return courseId;
-    }
-
-    public void setCourseId(int courseId) {
-        this.courseId = courseId;
-    }
+//    public int getInstructorId() {
+//        return instructorId;
+//    }
+//
+//    public void setInstructorId(int instructorId) {
+//        this.instructorId = instructorId;
+//    }
+//
+//    public int getCourseId() {
+//        return courseId;
+//    }
+//
+//    public void setCourseId(int courseId) {
+//        this.courseId = courseId;
+//    }
 
     public String getComments() {
         return comments;
@@ -79,10 +76,10 @@ public class Evaluation {
     public String toString() {
         return "Evaluation{" +
                 "id=" + id +
-                ", studenId=" + studentId +
+                ", studentId=" + //studentId +
                 ", date=" + date +
-                ", instructorId=" + instructorId +
-                ", courseId=" + courseId +
+                ", instructorId=" + //instructorId +
+                ", courseId=" + //courseId +
                 ", comments='" + comments + '\'' +
                 '}';
     }

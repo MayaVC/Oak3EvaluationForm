@@ -1,10 +1,11 @@
 package be.vdab.oak3evaluationform.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 @Entity
 public class Student {
@@ -21,6 +22,11 @@ public class Student {
 
     @NotNull
     private String eMail;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "student_id")
+    private Set<Evaluation> evaluations = new TreeSet<>();
+
 
     public Student() {
     }

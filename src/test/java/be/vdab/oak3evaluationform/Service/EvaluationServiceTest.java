@@ -33,10 +33,7 @@ public class EvaluationServiceTest {
     @Before
     public void init() {
         testEvaluation = new Evaluation();
-        testEvaluation.setStudentId(1);
         testEvaluation.setDate(Date.valueOf("2017-11-21"));
-        testEvaluation.setInstructorId(1);
-        testEvaluation.setCourseId(1);
         testEvaluation.setComments("TestComments");
     }
 

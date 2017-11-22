@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Oak3evaluationformApplication.class)
-@ActiveProfiles("maya")
+@ActiveProfiles("marco")
 public class QuestionServiceImplTest {
 
     private List<Question> questions;
