@@ -20,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class) //we gaan een springtest uitvoeren, gebruik makend van Junit
 @SpringBootTest(classes = Oak3evaluationformApplication.class) //zorgt ervoor dat de annotatie gestart wordt
-@ActiveProfiles("maya")
+@ActiveProfiles("miel")
 public class TopicServiceTest {
 
     @Autowired
@@ -35,12 +35,12 @@ public class TopicServiceTest {
         testTopic.setName("TestTopic");
     }
 
-    @After
-    public void clean() {
-        if (!topicService.findAll().isEmpty()) {
-            topicService.deleteTopic(testTopic);
-        }
-    }
+//    @After
+//    public void clean() {
+//        if (!topicService.findAll().isEmpty()) {
+//            topicService.deleteTopic(testTopic);
+//        }
+//    }
 
     @Test
     public void addTopic() {

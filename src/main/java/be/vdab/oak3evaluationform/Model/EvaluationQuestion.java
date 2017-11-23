@@ -8,8 +8,8 @@ public class EvaluationQuestion {
 
     @Id
     private int id;
-    @NotNull
-    private int evaluationId;
+//    @NotNull
+//    private int evaluationId;
 //    @NotNull
 //    private int questionId;
     @NotNull
@@ -21,13 +21,13 @@ public class EvaluationQuestion {
     public EvaluationQuestion() {
     }
 
-    public int getEvaluationId() {
-        return evaluationId;
-    }
-
-    public void setEvaluationId(int evaluationId) {
-        this.evaluationId = evaluationId;
-    }
+//    public int getEvaluationId() {
+//        return evaluationId;
+//    }
+//
+//    public void setEvaluationId(int evaluationId) {
+//        this.evaluationId = evaluationId;
+//    }
 
 //    public int getQuestionId() {
 //        return questionId;
@@ -58,7 +58,7 @@ public class EvaluationQuestion {
     public String toString() {
         return "EvaluationQuestion{" +
                 "id=" + id +
-                ", evaluationId=" + evaluationId +
+//                ", evaluationId=" + evaluationId +
 //                ", questionId=" + questionId +
                 ", score=" + score +
                 '}';

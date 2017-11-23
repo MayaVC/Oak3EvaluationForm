@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Oak3evaluationformApplication.class)
-@ActiveProfiles("marco")
+@ActiveProfiles("miel")
 public class EvaluationQuestionServiceImplTest {
 
     private EvaluationQuestion evaluationQuestion;
@@ -30,18 +30,18 @@ public class EvaluationQuestionServiceImplTest {
     @Before
     public void init() {
         evaluationQuestion = new EvaluationQuestion();
-        evaluationQuestion.setEvaluationId(10000);
+//        evaluationQuestion.setEvaluationId(10000);
 //        evaluationQuestion.setQuestionId(100);
         evaluationQuestion.setScore(Score.AVERAGE);    }
 
-    @After
-    public void clean(){
-        if(!evaluationQuestionService.findAll().isEmpty()){
-            for(EvaluationQuestion eq : evaluationQuestionService.findAll()){
-                evaluationQuestionService.deleteEvaluationQuestion(eq);
-            }
-        }
-    }
+//    @After
+//    public void clean(){
+//        if(!evaluationQuestionService.findAll().isEmpty()){
+//            for(EvaluationQuestion eq : evaluationQuestionService.findAll()){
+//                evaluationQuestionService.deleteEvaluationQuestion(eq);
+//            }
+//        }
+//    }
 
     @Test
     public void testAddEvaluationQuestion() {

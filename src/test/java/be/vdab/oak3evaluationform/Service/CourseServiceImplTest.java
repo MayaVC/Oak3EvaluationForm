@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Oak3evaluationformApplication.class)
-@ActiveProfiles("marco")
+@ActiveProfiles("miel")
 public class CourseServiceImplTest {
 
     private List<Course> courses;
@@ -32,14 +32,14 @@ public class CourseServiceImplTest {
         course.setName("Java Voor Prutsers");
     }
 
-    @After
-    public void clear(){
-        if(!service.findAll().isEmpty()) {
-            for (Course c : service.findAll()) {
-                service.deleteCourse(c);
-            }
-        }
-    }
+//    @After
+//    public void clear(){
+//        if(!service.findAll().isEmpty()) {
+//            for (Course c : service.findAll()) {
+//                service.deleteCourse(c);
+//            }
+//        }
+//    }
 
     @Test
     public void testAddCourse(){
