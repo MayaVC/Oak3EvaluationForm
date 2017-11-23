@@ -33,12 +33,12 @@ public class SubtopicServiceTest {
         testSubTopic.setName("TestSubTopic");
     }
 
-    @After
-    public void clean() {
-        if (!subTopicService.findAll().isEmpty()) {
-            subTopicService.deleteSubtopic(testSubTopic);
-        }
-    }
+//    @After
+//    public void clean() {
+//        if (!subTopicService.findAll().isEmpty()) {
+//            subTopicService.deleteSubtopic(testSubTopic);
+//        }
+//    }
 
     @Test
     public void addTopic() {

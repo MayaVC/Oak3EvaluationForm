@@ -37,14 +37,14 @@ public class StudentServiceImplTest {
         student.setFirstName("Java");
     }
 
-    @After
-    public void clear() {
-        if(!service.findAll().isEmpty()) {
-            for (Student s : service.findAll()) {
-                service.deleteStudent(s);
-            }
-        }
-    }
+//    @After
+//    public void clear() {
+//        if(!service.findAll().isEmpty()) {
+//            for (Student s : service.findAll()) {
+//                service.deleteStudent(s);
+//            }
+//        }
+//    }
 
     @Test
     public void testAddStudent(){

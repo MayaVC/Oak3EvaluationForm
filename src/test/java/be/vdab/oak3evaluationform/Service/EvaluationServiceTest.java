@@ -37,12 +37,12 @@ public class EvaluationServiceTest {
         testEvaluation.setComments("TestComments");
     }
 
-    @After
-    public void clean() {
-        if (!evaluationService.findAll().isEmpty()) {
-                evaluationService.deleteEvaluation(testEvaluation);
-            }
-    }
+//    @After
+//    public void clean() {
+//        if (!evaluationService.findAll().isEmpty()) {
+//                evaluationService.deleteEvaluation(testEvaluation);
+//            }
+//    }
 
     @Test
     public void addEvaluation(){

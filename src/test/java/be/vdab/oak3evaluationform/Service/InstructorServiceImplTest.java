@@ -35,14 +35,14 @@ public class InstructorServiceImplTest {
         instructor.setName("Kei Injava");
     }
 
-    @After
-    public void clear() throws Exception {
-        if(!service.findAll().isEmpty()) {
-            for (Instructor i : service.findAll()) {
-                service.deleteInstructor(i);
-            }
-        }
-    }
+//    @After
+//    public void clear() throws Exception {
+//        if(!service.findAll().isEmpty()) {
+//            for (Instructor i : service.findAll()) {
+//                service.deleteInstructor(i);
+//            }
+//        }
+//    }
 
     @Test
     public void testAddInstructor(){

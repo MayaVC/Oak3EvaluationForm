@@ -32,14 +32,14 @@ public class CourseServiceImplTest {
         course.setName("Java Voor Prutsers");
     }
 
-    @After
-    public void clear(){
-        if(!service.findAll().isEmpty()) {
-            for (Course c : service.findAll()) {
-                service.deleteCourse(c);
-            }
-        }
-    }
+//    @After
+//    public void clear(){
+//        if(!service.findAll().isEmpty()) {
+//            for (Course c : service.findAll()) {
+//                service.deleteCourse(c);
+//            }
+//        }
+//    }
 
     @Test
     public void testAddCourse(){

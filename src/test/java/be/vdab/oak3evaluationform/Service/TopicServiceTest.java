@@ -35,12 +35,12 @@ public class TopicServiceTest {
         testTopic.setName("TestTopic");
     }
 
-    @After
-    public void clean() {
-        if (!topicService.findAll().isEmpty()) {
-            topicService.deleteTopic(testTopic);
-        }
-    }
+//    @After
+//    public void clean() {
+//        if (!topicService.findAll().isEmpty()) {
+//            topicService.deleteTopic(testTopic);
+//        }
+//    }
 
     @Test
     public void addTopic() {

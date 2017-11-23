@@ -34,14 +34,14 @@ public class EvaluationQuestionServiceImplTest {
 //        evaluationQuestion.setQuestionId(100);
         evaluationQuestion.setScore(Score.AVERAGE);    }
 
-    @After
-    public void clean(){
-        if(!evaluationQuestionService.findAll().isEmpty()){
-            for(EvaluationQuestion eq : evaluationQuestionService.findAll()){
-                evaluationQuestionService.deleteEvaluationQuestion(eq);
-            }
-        }
-    }
+//    @After
+//    public void clean(){
+//        if(!evaluationQuestionService.findAll().isEmpty()){
+//            for(EvaluationQuestion eq : evaluationQuestionService.findAll()){
+//                evaluationQuestionService.deleteEvaluationQuestion(eq);
+//            }
+//        }
+//    }
 
     @Test
     public void testAddEvaluationQuestion() {

@@ -4,7 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class EvaluationQuestion {
+public class  EvaluationQuestion {
 
     @Id
     private int id;

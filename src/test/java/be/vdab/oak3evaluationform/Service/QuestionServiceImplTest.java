@@ -34,14 +34,14 @@ public class QuestionServiceImplTest {
         question.setCategory(Category.GENERAL);
     }
 
-    @After
-    public void clean(){
-        if(!questionService.findAll().isEmpty()){
-            for(Question q : questionService.findAll()){
-                questionService.deleteQuestion(q);
-            }
-        }
-    }
+//    @After
+//    public void clean(){
+//        if(!questionService.findAll().isEmpty()){
+//            for(Question q : questionService.findAll()){
+//                questionService.deleteQuestion(q);
+//            }
+//        }
+//    }
 
     @Test
     public void testAddQuestion() {
