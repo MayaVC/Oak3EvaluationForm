@@ -1,9 +1,11 @@
 package be.vdab.oak3evaluationform.Service;
 
 import be.vdab.oak3evaluationform.Model.Subtopic;
+import be.vdab.oak3evaluationform.Model.Topic;
 import be.vdab.oak3evaluationform.Oak3evaluationformApplication;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,13 +26,20 @@ public class SubtopicServiceTest {
     @Autowired
     private SubtopicService subTopicService;
 
+    @Autowired
+    private TopicService topicService;
+
+    private Topic testTopic;
     private Subtopic testSubTopic;
     private List<Subtopic> testList;
 
+
     @Before
     public void init() {
+        testTopic = topicService.findOne(1);
         testSubTopic = new Subtopic();
         testSubTopic.setName("TestSubTopic");
+        testSubTopic.setTopic(testTopic);
     }
 
     @After

@@ -22,10 +22,10 @@ public class Student {
 
     @NotNull
     private String eMail;
-
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "student_id")
-    private Set<Evaluation> evaluations = new TreeSet<>();
+//
+//    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JoinColumn(name = "student_id")
+//    private Set<Evaluation> evaluations = new TreeSet<>();
 
     @ManyToMany
     @JoinTable(name = "student_subtopic", joinColumns = @JoinColumn(name = "student_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "subtopic_id", referencedColumnName = "id"))
@@ -67,6 +67,22 @@ public class Student {
         this.eMail = eMail;
     }
 
+//    public Set<Evaluation> getEvaluations() {
+//        return evaluations;
+//    }
+//
+//    public void setEvaluations(Set<Evaluation> evaluations) {
+//        this.evaluations = evaluations;
+//    }
+
+    public Set<Subtopic> getSubtopics() {
+        return subtopics;
+    }
+
+    public void setSubtopics(Set<Subtopic> subtopics) {
+        this.subtopics = subtopics;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
@@ -74,6 +90,8 @@ public class Student {
                 ", name='" + name + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", eMail='" + eMail + '\'' +
+//                ", evaluations=" + evaluations +
+                ", subtopics=" + subtopics +
                 '}';
     }
 }

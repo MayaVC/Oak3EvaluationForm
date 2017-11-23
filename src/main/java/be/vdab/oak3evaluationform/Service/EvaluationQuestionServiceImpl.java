@@ -1,5 +1,6 @@
 package be.vdab.oak3evaluationform.Service;
 
+import be.vdab.oak3evaluationform.Model.Evaluation;
 import be.vdab.oak3evaluationform.Model.EvaluationQuestion;
 import be.vdab.oak3evaluationform.Repository.EvaluationQuestionJPARepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,4 +45,8 @@ public class EvaluationQuestionServiceImpl implements EvaluationQuestionService 
     public List<EvaluationQuestion> findAll() {
         return evaluationQuestionJPARepository.findAll();
     }
+
+
+    @Override
+    public EvaluationQuestion findOne(int id) {return evaluationQuestionJPARepository.findOne(id);}
 }

@@ -1,6 +1,7 @@
 package be.vdab.oak3evaluationform.Service;
 
 import be.vdab.oak3evaluationform.Model.Student;
+import be.vdab.oak3evaluationform.Model.Topic;
 import be.vdab.oak3evaluationform.Repository.StudentJPARepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,4 +44,7 @@ public class StudentServiceImpl implements StudentService {
     public List<Student> findAll() {
         return studentJPARepository.findAll();
     }
+
+    @Override
+    public Student findOne(int id) {return studentJPARepository.findOne(id);}
 }

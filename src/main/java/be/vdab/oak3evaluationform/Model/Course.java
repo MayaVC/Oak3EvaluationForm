@@ -18,9 +18,9 @@ public class Course {
     @JoinTable(name = "course_instructor", joinColumns = @JoinColumn(name = "instructor_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "course_id", referencedColumnName = "id"))
     private Set<Instructor> instructors;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "course_id")
-    private Set<Evaluation> evaluations = new TreeSet<>();
+//    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JoinColumn(name = "course_id", nullable=false)
+//    private Set<Evaluation> evaluations = new TreeSet<>();
 
     public Course() {
     }
@@ -49,11 +49,22 @@ public class Course {
         this.instructors = instructors;
     }
 
+//    public Set<Evaluation> getEvaluations() {
+//        return evaluations;
+//    }
+//
+//    public void setEvaluations(Set<Evaluation> evaluations) {
+//        this.evaluations = evaluations;
+//    }
+
+
     @Override
     public String toString() {
         return "Course{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", instructors=" + instructors +
+//                ", evaluations=" + evaluations +
                 '}';
     }
 }

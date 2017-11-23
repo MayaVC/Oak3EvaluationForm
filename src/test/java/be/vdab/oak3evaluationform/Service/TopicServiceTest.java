@@ -5,6 +5,7 @@ import be.vdab.oak3evaluationform.Model.Topic;
 import be.vdab.oak3evaluationform.Oak3evaluationformApplication;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import java.sql.Date;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+
 
 
 @RunWith(SpringRunner.class) //we gaan een springtest uitvoeren, gebruik makend van Junit

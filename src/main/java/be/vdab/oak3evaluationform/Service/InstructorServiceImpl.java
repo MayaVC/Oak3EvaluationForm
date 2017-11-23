@@ -1,6 +1,7 @@
 package be.vdab.oak3evaluationform.Service;
 
 import be.vdab.oak3evaluationform.Model.Instructor;
+import be.vdab.oak3evaluationform.Model.Topic;
 import be.vdab.oak3evaluationform.Repository.InstructorJPARepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,4 +44,7 @@ public class InstructorServiceImpl implements InstructorService {
     public List<Instructor> findAll() {
         return instructorJPARepository.findAll();
     }
+
+    @Override
+    public Instructor findOne(int id) {return instructorJPARepository.findOne(id);}
 }

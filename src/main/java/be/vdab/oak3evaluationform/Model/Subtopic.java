@@ -15,6 +15,10 @@ public class Subtopic {
     @ManyToMany(mappedBy = "subtopics")
     private Set<Student> students;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "topic_id", nullable = false)
+    private Topic topic;
+
     public Subtopic() {
     }
 
@@ -34,11 +38,31 @@ public class Subtopic {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "Subtopic{" +
-                "Id=" + Id +
-                ", name='" + name + '\'' +
-                '}';
+    public Set<Student> getStudents() {
+            return students;
     }
-}
+
+    public void setStudents(Set<Student> students) {
+            this.students = students;
+    }
+
+        public Topic getTopic() {
+            return topic;
+        }
+
+        public void setTopic(Topic topic) {
+            this.topic = topic;
+        }
+
+
+        @Override
+        public String toString() {
+            return "Subtopic{" +
+                    "Id=" + Id +
+                    ", name='" + name + '\'' +
+                    ", students=" + students +
+                    ", topic=" + topic +
+                    '}';
+        }
+    }
+

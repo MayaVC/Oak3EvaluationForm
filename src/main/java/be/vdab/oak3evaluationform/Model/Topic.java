@@ -14,8 +14,7 @@ public class Topic {
     private int id;
     @NotNull
     private String name;
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "topic_id")
+    @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Subtopic> subtopics = new TreeSet<>();
 
     public Topic() {
@@ -37,11 +36,21 @@ public class Topic {
         this.name = name;
     }
 
+    public Set<Subtopic> getSubtopics() {
+        return subtopics;
+    }
+
+    public void setSubtopics(Set<Subtopic> subtopics) {
+        this.subtopics = subtopics;
+    }
+
+
     @Override
     public String toString() {
         return "Topic{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", subtopics=" + subtopics +
                 '}';
     }
 }

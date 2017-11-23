@@ -12,4 +12,6 @@ public interface EvaluationQuestionService {
     int deleteEvaluationQuestion(EvaluationQuestion evaluationQuestion);
 
     List<EvaluationQuestion> findAll();
+
+    EvaluationQuestion findOne(int id);
 }
