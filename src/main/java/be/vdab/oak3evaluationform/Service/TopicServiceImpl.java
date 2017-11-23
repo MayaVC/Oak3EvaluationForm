@@ -44,4 +44,7 @@ public class TopicServiceImpl implements TopicService {
     public List<Topic> findAll() {
         return topicJPARepository.findAll();
     }
+
+    @Override
+    public Topic findOne(int id) {return topicJPARepository.findOne(id);}
 }

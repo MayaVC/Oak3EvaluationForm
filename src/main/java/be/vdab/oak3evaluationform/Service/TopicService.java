@@ -12,4 +12,6 @@ public interface TopicService {
     int deleteTopic(Topic opic);
 
     List<Topic> findAll();
+
+    Topic findOne(int id);
 }

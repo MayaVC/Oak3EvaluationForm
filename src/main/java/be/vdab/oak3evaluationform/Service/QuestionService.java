@@ -10,4 +10,6 @@ public interface QuestionService {
     int deleteQuestion(Question question);
 
     List<Question> findAll();
+
+    Question findOne(int id);
 }

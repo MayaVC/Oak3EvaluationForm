@@ -5,6 +5,7 @@ import be.vdab.oak3evaluationform.Model.Student;
 import be.vdab.oak3evaluationform.Oak3evaluationformApplication;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +18,10 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.*;
 
+
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Oak3evaluationformApplication.class)
-@ActiveProfiles("miel")
+@ActiveProfiles("maya")
 public class StudentServiceImplTest {
 
 
@@ -37,14 +39,14 @@ public class StudentServiceImplTest {
         student.setFirstName("Java");
     }
 
-//    @After
-//    public void clear() {
-//        if(!service.findAll().isEmpty()) {
-//            for (Student s : service.findAll()) {
-//                service.deleteStudent(s);
-//            }
-//        }
-//    }
+    @After
+    public void clear() {
+        if(!service.findAll().isEmpty()) {
+            for (Student s : service.findAll()) {
+                service.deleteStudent(s);
+            }
+        }
+    }
 
     @Test
     public void testAddStudent(){

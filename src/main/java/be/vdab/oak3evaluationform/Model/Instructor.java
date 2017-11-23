@@ -18,9 +18,9 @@ public class Instructor {
     @ManyToMany(mappedBy = "instructors")
     private Set<Course> courses;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "instructor_id")
-    private Set<Evaluation> evaluations = new TreeSet<>();
+//    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JoinColumn(name = "instructor_id",  nullable=false)
+//    private Set<Evaluation> evaluations = new TreeSet<>();
 
     public Instructor() {
     }
@@ -49,11 +49,21 @@ public class Instructor {
         this.courses = courses;
     }
 
+//    public Set<Evaluation> getEvaluations() {
+//        return evaluations;
+//    }
+//
+//    public void setEvaluations(Set<Evaluation> evaluations) {
+//        this.evaluations = evaluations;
+//    }
+
     @Override
     public String toString() {
         return "Instructor{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", courses=" + courses +
+//                ", evaluations=" + evaluations +
                 '}';
     }
 }

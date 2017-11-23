@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 public class EvaluationQuestion {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 //    @NotNull
 //    private int evaluationId;
@@ -14,28 +15,15 @@ public class EvaluationQuestion {
 //    private int questionId;
     @NotNull
     private Score score;
-    @OneToOne(fetch = FetchType.LAZY)
-    @MapsId
-    private Question question;
+//    @OneToOne(fetch = FetchType.LAZY)
+//    @MapsId
+//    private Question question;
+
+
 
     public EvaluationQuestion() {
     }
 
-//    public int getEvaluationId() {
-//        return evaluationId;
-//    }
-//
-//    public void setEvaluationId(int evaluationId) {
-//        this.evaluationId = evaluationId;
-//    }
-
-//    public int getQuestionId() {
-//        return questionId;
-//    }
-
-//    public void setQuestionId(int questionId) {
-//        this.questionId = questionId;
-//    }
 
     @Enumerated(EnumType.STRING)
     public Score getScore() {
@@ -54,13 +42,21 @@ public class EvaluationQuestion {
         this.id = id;
     }
 
+//    public Question getQuestion() {
+//        return question;
+//    }
+//
+//    public void setQuestion(Question question) {
+//        this.question = question;
+//    }
+
+
     @Override
     public String toString() {
         return "EvaluationQuestion{" +
                 "id=" + id +
-//                ", evaluationId=" + evaluationId +
-//                ", questionId=" + questionId +
                 ", score=" + score +
+//                ", question=" + question +
                 '}';
     }
 }

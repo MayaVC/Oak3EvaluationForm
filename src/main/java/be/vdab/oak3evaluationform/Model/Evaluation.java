@@ -22,8 +22,23 @@ public class Evaluation {
 //    private int courseId; wordt als foreingkey aangemaakt door hybernate
     @NotNull
     private String comments;
+//    @NotNull
+//    private int student_id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "course_id", nullable = false)
+    private Course course;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "instructor_id", nullable = false)
+    private Instructor instructor;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "student_id", nullable = false)
+    private Student student;
+
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "evaluationQuestion_id")
+    @JoinColumn(name = "evaluation_id", nullable = false)
     private Set<EvaluationQuestion> evaluationQuestions = new TreeSet<>();
 
 
@@ -38,13 +53,6 @@ public class Evaluation {
         this.id = id;
     }
 
-//    public int getStudentId() {
-//        return studentId;
-//    }
-//
-//    public void setStudentId(int studenId) {
-//        this.studentId = studenId;
-//    }
 
     public Date getDate() {
         return date;
@@ -54,21 +62,6 @@ public class Evaluation {
         this.date = date;
     }
 
-//    public int getInstructorId() {
-//        return instructorId;
-//    }
-//
-//    public void setInstructorId(int instructorId) {
-//        this.instructorId = instructorId;
-//    }
-//
-//    public int getCourseId() {
-//        return courseId;
-//    }
-//
-//    public void setCourseId(int courseId) {
-//        this.courseId = courseId;
-//    }
 
     public String getComments() {
         return comments;
@@ -78,15 +71,48 @@ public class Evaluation {
         this.comments = comments;
     }
 
+    public Set<EvaluationQuestion> getEvaluationQuestions() {
+        return evaluationQuestions;
+    }
+
+    public void setEvaluationQuestions(Set<EvaluationQuestion> evaluationQuestions) {
+        this.evaluationQuestions = evaluationQuestions;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
+    public Instructor getInstructor() {
+        return instructor;
+    }
+
+    public void setInstructor(Instructor instructor) {
+        this.instructor = instructor;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
     @Override
     public String toString() {
         return "Evaluation{" +
                 "id=" + id +
-                ", studentId=" + //studentId +
                 ", date=" + date +
-                ", instructorId=" + //instructorId +
-                ", courseId=" + //courseId +
                 ", comments='" + comments + '\'' +
+                ", course=" + course +
+                ", instructor=" + instructor +
+                ", student=" + student +
+                ", evaluationQuestions=" + evaluationQuestions +
                 '}';
     }
 }

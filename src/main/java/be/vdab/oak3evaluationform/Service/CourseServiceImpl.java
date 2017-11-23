@@ -1,6 +1,7 @@
 package be.vdab.oak3evaluationform.Service;
 
 import be.vdab.oak3evaluationform.Model.Course;
+import be.vdab.oak3evaluationform.Model.Topic;
 import be.vdab.oak3evaluationform.Repository.CourseJPARepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,4 +44,7 @@ public class CourseServiceImpl implements CourseService {
     public List<Course> findAll() {
         return courseJPARepository.findAll();
     }
+
+    @Override
+    public Course findOne(int id) {return courseJPARepository.findOne(id);}
 }

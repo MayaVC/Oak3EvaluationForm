@@ -44,4 +44,7 @@ public class EvaluationServiceImpl implements EvaluationService {
     public List<Evaluation> findAll() {
         return evaluationJPARepository.findAll();
     }
+
+    @Override
+    public Evaluation findOne(int id) {return evaluationJPARepository.findOne(id);}
 }

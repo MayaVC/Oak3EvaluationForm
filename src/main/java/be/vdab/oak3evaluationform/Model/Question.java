@@ -2,6 +2,8 @@ package be.vdab.oak3evaluationform.Model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Set;
+import java.util.TreeSet;
 
 @Entity
 public class Question {
@@ -14,6 +16,10 @@ public class Question {
     @NotNull
     @Enumerated(EnumType.STRING)
     private Category category;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "question_id", nullable=false)
+    private Set<EvaluationQuestion> evaluationQuestions = new TreeSet<>();
+
 
     public Question() {
     }
