@@ -1,0 +1,35 @@
+#top-header {
+    background-color: lightgray;
+    height: 200px;
+    margin: 10px;
+}
+
+#img-logo {
+    height: 180px;
+    width: 400px;
+}
+
+h1 {
+    position: absolute;
+    top: 50%;
+    right: 25%;
+    color: green;
+}
+
+#evaluation-form {
+    border: 1px solid green;
+    border-radius: 5px 5px 5px 5px;
+    padding: 5px 5px 5px 5px;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+.category {
+    border: 1px solid gray;
+    border-radius: 5px 5px 5px 5px;
+    padding: 5px 5px 5px 5px;    
+}
+
+.btn-success {
+    margin:auto;
+    display:block;
+}
