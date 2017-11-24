@@ -39,10 +39,12 @@ public class EvaluationQuestionServiceImplTest {
 
     @Before
     public void init() {
-        testQuestion = questionService.findOne(1);
-        testEvaluation = evaluationService.findOne(1);
+        testQuestion = questionService.findOne(7);
+        testEvaluation = evaluationService.findOne(2);
         testEvaluationQuestion = new EvaluationQuestion();
         testEvaluationQuestion.setScore(Score.AVERAGE);
+        testEvaluationQuestion.setEvaluation(testEvaluation);
+        testEvaluationQuestion.setQuestion(testQuestion);
 //
     }
 

@@ -37,9 +37,10 @@ public class Evaluation {
     @JoinColumn(name = "student_id", nullable = false)
     private Student student;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "evaluation_id", nullable = false)
+    @OneToMany(mappedBy ="evaluation", cascade = CascadeType.PERSIST, orphanRemoval = true)
+//    @JoinColumn(name = "evaluation_id", nullable = false)
     private Set<EvaluationQuestion> evaluationQuestions = new TreeSet<>();
+
 
 
     public Evaluation() {

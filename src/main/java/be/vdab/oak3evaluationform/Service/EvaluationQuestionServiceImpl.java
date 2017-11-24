@@ -20,6 +20,7 @@ public class EvaluationQuestionServiceImpl implements EvaluationQuestionService 
 
     @Override
     public int addEvaluationQuestion(EvaluationQuestion evaluationQuestion) {
+        System.out.println(evaluationQuestion);
         EvaluationQuestion eq = evaluationQuestionJPARepository.saveAndFlush(evaluationQuestion);
         return  eq!= null ? 1 : 0;
     }

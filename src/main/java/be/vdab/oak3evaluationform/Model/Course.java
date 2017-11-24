@@ -19,7 +19,6 @@ public class Course {
     private Set<Instructor> instructors;
 
 //    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-//    @JoinColumn(name = "course_id", nullable=false)
 //    private Set<Evaluation> evaluations = new TreeSet<>();
 
     public Course() {

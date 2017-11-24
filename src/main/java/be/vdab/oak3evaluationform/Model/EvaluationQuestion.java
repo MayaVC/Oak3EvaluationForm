@@ -18,7 +18,13 @@ public class EvaluationQuestion {
 //    @OneToOne(fetch = FetchType.LAZY)
 //    @MapsId
 //    private Question question;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "question_id", nullable = false)
+    private Question question;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "evaluation_id", nullable = false)
+    private Evaluation evaluation;
 
 
     public EvaluationQuestion() {
@@ -42,21 +48,30 @@ public class EvaluationQuestion {
         this.id = id;
     }
 
-//    public Question getQuestion() {
-//        return question;
-//    }
-//
-//    public void setQuestion(Question question) {
-//        this.question = question;
-//    }
+    public Question getQuestion() {
+        return question;
+    }
 
+    public void setQuestion(Question question) {
+        this.question = question;
+    }
+
+
+    public Evaluation getEvaluation() {
+        return evaluation;
+    }
+
+    public void setEvaluation(Evaluation evaluation) {
+        this.evaluation = evaluation;
+    }
 
     @Override
     public String toString() {
         return "EvaluationQuestion{" +
                 "id=" + id +
                 ", score=" + score +
-//                ", question=" + question +
+                ", question=" + question +
+                ", evaluation=" + evaluation +
                 '}';
     }
 }

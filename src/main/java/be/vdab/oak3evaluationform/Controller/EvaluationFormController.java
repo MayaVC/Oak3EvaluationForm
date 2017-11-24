@@ -40,7 +40,7 @@ public class EvaluationFormController {
         return ResponseEntity.ok(instructorService.findAll());
     }
 
-    @PostMapping("/addinstructor")
+    @PostMapping("/instructor")
     public ResponseEntity addInstructor(@RequestBody Instructor instructor){
         return ResponseEntity.ok(instructorService.addInstructor(instructor));
     }
@@ -51,7 +51,7 @@ public class EvaluationFormController {
         return ResponseEntity.ok(courseService.findAll());
     }
 
-    @PostMapping("/addcourse")
+    @PostMapping("/course")
     public ResponseEntity addCourse(@RequestBody Course course){
         return ResponseEntity.ok(courseService.addCourse(course));
     }
@@ -62,7 +62,7 @@ public class EvaluationFormController {
         return ResponseEntity.ok(questionService.findAll());
     }
 
-    @PostMapping("/addquestion")
+    @PostMapping("/question")
     public ResponseEntity addQuestion(@RequestBody Question question){
         return ResponseEntity.ok(questionService.addQuestion(question));
     }
@@ -73,7 +73,7 @@ public class EvaluationFormController {
         return ResponseEntity.ok(evaluationQuestionService.findAll());
     }
 
-    @PostMapping("/addevaluationquestion")
+    @PostMapping("/evaluationquestion")
     public ResponseEntity addEvaluationQuestion(@RequestBody EvaluationQuestion evaluationQuestion){
         return ResponseEntity.ok(evaluationQuestionService.addEvaluationQuestion(evaluationQuestion));
     }
@@ -84,7 +84,7 @@ public class EvaluationFormController {
         return ResponseEntity.ok(topicService.findAll());
     }
 
-    @PostMapping("/addtopic")
+    @PostMapping("/topic")
     public ResponseEntity addTopic(@RequestBody Topic topic){
         return ResponseEntity.ok(topicService.addTopic(topic));
     }
@@ -95,7 +95,7 @@ public class EvaluationFormController {
         return ResponseEntity.ok(subtopicService.findAll());
     }
 
-    @PostMapping("/addsubtopic")
+    @PostMapping("/subtopic")
     public ResponseEntity addSubtopic(@RequestBody Subtopic subtopic){
         return ResponseEntity.ok(subtopicService.addSubtopic(subtopic));
     }
@@ -106,7 +106,7 @@ public class EvaluationFormController {
         return ResponseEntity.ok(studentService.findAll());
     }
 
-    @PostMapping("/addstudent")
+    @PostMapping("/student")
     public ResponseEntity addStudent(@RequestBody Student student){
         return ResponseEntity.ok(studentService.addStudent(student));
     }
@@ -114,10 +114,10 @@ public class EvaluationFormController {
     //Evaluations
     @GetMapping("/evaluations")
     public ResponseEntity findAllEvaluations(){
-        return ResponseEntity.ok(instructorService.findAll());
+        return ResponseEntity.ok(evaluationService.findAll());
     }
 
-    @PostMapping("/addevaluation")
+    @PostMapping("/evaluation")
     public ResponseEntity addEvaluation(@RequestBody Evaluation evaluation){
         return ResponseEntity.ok(evaluationService.addEvaluation(evaluation));
     }
