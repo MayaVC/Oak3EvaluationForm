@@ -2,7 +2,6 @@ package be.vdab.oak3evaluationform.Model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -14,8 +13,8 @@ public class Topic {
     private int id;
     @NotNull
     private String name;
-    @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Subtopic> subtopics = new TreeSet<>();
+//    @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private Set<Subtopic> subtopics = new TreeSet<>();
 
     public Topic() {
     }
@@ -36,13 +35,13 @@ public class Topic {
         this.name = name;
     }
 
-    public Set<Subtopic> getSubtopics() {
-        return subtopics;
-    }
-
-    public void setSubtopics(Set<Subtopic> subtopics) {
-        this.subtopics = subtopics;
-    }
+//    public Set<Subtopic> getSubtopics() {
+//        return subtopics;
+//    }
+//
+//    public void setSubtopics(Set<Subtopic> subtopics) {
+//        this.subtopics = subtopics;
+//    }
 
 
     @Override
@@ -50,7 +49,7 @@ public class Topic {
         return "Topic{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", subtopics=" + subtopics +
+//                ", subtopics=" + subtopics +
                 '}';
     }
 }

@@ -18,11 +18,11 @@ public class EvaluationQuestion {
 //    @OneToOne(fetch = FetchType.LAZY)
 //    @MapsId
 //    private Question question;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "question_id", nullable = false)
     private Question question;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "evaluation_id", nullable = false)
     private Evaluation evaluation;
 
@@ -73,5 +73,20 @@ public class EvaluationQuestion {
                 ", question=" + question +
                 ", evaluation=" + evaluation +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof EvaluationQuestion)) return false;
+
+        EvaluationQuestion that = (EvaluationQuestion) o;
+
+        return getId() == that.getId();
+    }
+
+    @Override
+    public int hashCode() {
+        return getId();
     }
 }

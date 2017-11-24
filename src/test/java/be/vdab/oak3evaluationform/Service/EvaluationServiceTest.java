@@ -50,7 +50,7 @@ public class EvaluationServiceTest {
     @Before
     public void init() {
         testCourse = courseService.findOne(1);
-        testInstructor = instructorService.findOne(1);
+        testInstructor = instructorService.findOne(2);
         testStudent = studentService.findOne(1);
         testEvaluation = new Evaluation();
         testEvaluation.setDate(Date.valueOf("2017-11-21"));

@@ -29,7 +29,7 @@ public class Student {
 
     @ManyToMany
     @JoinTable(name = "student_subtopic", joinColumns = @JoinColumn(name = "student_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "subtopic_id", referencedColumnName = "id"))
-    private Set<Subtopic> subtopics;
+    private Set<Subtopic> studentSubtopics;
 
 
     public Student() {
@@ -75,12 +75,13 @@ public class Student {
 //        this.evaluations = evaluations;
 //    }
 
-    public Set<Subtopic> getSubtopics() {
-        return subtopics;
+
+    public Set<Subtopic> getStudentsubtopics() {
+        return studentSubtopics;
     }
 
-    public void setSubtopics(Set<Subtopic> subtopics) {
-        this.subtopics = subtopics;
+    public void setStudentsubtopics(Set<Subtopic> studentsubtopics) {
+        this.studentSubtopics = studentsubtopics;
     }
 
     @Override
@@ -90,8 +91,7 @@ public class Student {
                 ", name='" + name + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", eMail='" + eMail + '\'' +
-//                ", evaluations=" + evaluations +
-                ", subtopics=" + subtopics +
+                ", studentsubtopics=" + studentSubtopics +
                 '}';
     }
 }

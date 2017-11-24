@@ -16,8 +16,8 @@ public class Question {
     @NotNull
     @Enumerated(EnumType.STRING)
     private Category category;
-    @OneToMany(mappedBy = "question", cascade = CascadeType.PERSIST, orphanRemoval = true)
-    private Set<EvaluationQuestion> evaluationQuestions = new TreeSet<>();
+//    @OneToMany(mappedBy = "question", cascade = CascadeType.PERSIST, orphanRemoval = true)
+//    private Set<EvaluationQuestion> evaluationQuestions = new TreeSet<>();
 
 
     public Question() {

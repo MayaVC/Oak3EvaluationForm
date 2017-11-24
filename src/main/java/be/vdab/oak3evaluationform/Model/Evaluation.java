@@ -25,21 +25,20 @@ public class Evaluation {
 //    @NotNull
 //    private int student_id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "course_id", nullable = false)
     private Course course;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "instructor_id", nullable = false)
     private Instructor instructor;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "student_id", nullable = false)
     private Student student;
 
-    @OneToMany(mappedBy ="evaluation", cascade = CascadeType.PERSIST, orphanRemoval = true)
-//    @JoinColumn(name = "evaluation_id", nullable = false)
-    private Set<EvaluationQuestion> evaluationQuestions = new TreeSet<>();
+//    @OneToMany(mappedBy ="evaluation", cascade = CascadeType.PERSIST, orphanRemoval = true)
+//    private Set<EvaluationQuestion> evaluationQuestions = new TreeSet<>();
 
 
 
@@ -72,13 +71,13 @@ public class Evaluation {
         this.comments = comments;
     }
 
-    public Set<EvaluationQuestion> getEvaluationQuestions() {
-        return evaluationQuestions;
-    }
-
-    public void setEvaluationQuestions(Set<EvaluationQuestion> evaluationQuestions) {
-        this.evaluationQuestions = evaluationQuestions;
-    }
+//    public Set<EvaluationQuestion> getEvaluationQuestions() {
+//        return evaluationQuestions;
+//    }
+//
+//    public void setEvaluationQuestions(Set<EvaluationQuestion> evaluationQuestions) {
+//        this.evaluationQuestions = evaluationQuestions;
+//    }
 
     public Course getCourse() {
         return course;
@@ -113,7 +112,22 @@ public class Evaluation {
                 ", course=" + course +
                 ", instructor=" + instructor +
                 ", student=" + student +
-                ", evaluationQuestions=" + evaluationQuestions +
+//                ", evaluationQuestions=" + evaluationQuestions +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Evaluation)) return false;
+
+        Evaluation that = (Evaluation) o;
+
+        return getId() == that.getId();
+    }
+
+    @Override
+    public int hashCode() {
+        return getId();
     }
 }

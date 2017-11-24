@@ -12,10 +12,10 @@ public class Subtopic {
     private int Id;
     @NotNull
     private String name;
-    @ManyToMany(mappedBy = "subtopics")
+    @ManyToMany(mappedBy = "studentSubtopics")
     private Set<Student> students;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "topic_id", nullable = false)
     private Topic topic;
 
@@ -63,6 +63,21 @@ public class Subtopic {
                     ", students=" + students +
                     ", topic=" + topic +
                     '}';
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (!(o instanceof Subtopic)) return false;
+
+            Subtopic subtopic = (Subtopic) o;
+
+            return getId() == subtopic.getId();
+        }
+
+        @Override
+        public int hashCode() {
+            return getId();
         }
     }
 
