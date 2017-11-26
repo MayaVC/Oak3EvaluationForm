@@ -60,21 +60,24 @@ $(document).ready(function(){
 
 
 function findAllInstructors() {
+    console.log("findAllInstructors : function");
     $.ajax({
         type: "get",
         url: url + "/instructors",
         dataType: "json",
         success: function (response) {
             console.log("findAllInstructors : success");
+            console.log("response = " + response);
             let instructors = response;
-            let dynamicHTML;
+            let dynamicHTML = "";
             for (let instr of instructors){
-                dynamicHTML += `<option value=${instr.id}>${instr.id} - ${instr.name}</option>`;
+                dynamicHTML += `<option value=${instr.id}>${instr.id}  ${instr.name}</option>`;
             }
+            console.log("dynamicHTML = " + dynamicHTML);
             $("#dropdownlist-instructor").html(dynamicHTML);
         },
         error: function(){
-            console.log("Error find all instructors")
+            console.log("Error find all instructors");
         }
     });
 }
