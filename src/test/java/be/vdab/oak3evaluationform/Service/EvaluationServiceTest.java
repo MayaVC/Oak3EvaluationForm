@@ -1,13 +1,9 @@
 package be.vdab.oak3evaluationform.Service;
 
-import be.vdab.oak3evaluationform.Model.Course;
 import be.vdab.oak3evaluationform.Model.Evaluation;
-import be.vdab.oak3evaluationform.Model.Instructor;
-import be.vdab.oak3evaluationform.Model.Student;
 import be.vdab.oak3evaluationform.Oak3evaluationformApplication;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +16,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Ignore
+
 @RunWith(SpringRunner.class) //we gaan een springtest uitvoeren, gebruik makend van Junit
 @SpringBootTest(classes = Oak3evaluationformApplication.class) //zorgt ervoor dat de annotatie gestart wordt
 @ActiveProfiles("maya")
@@ -31,34 +27,14 @@ public class EvaluationServiceTest {
     @Autowired
     private EvaluationService evaluationService;
 
-    @Autowired
-    private CourseService courseService;
-
-    @Autowired
-    private InstructorService instructorService;
-
-    @Autowired
-    private StudentService studentService;
-
-
     private Evaluation testEvaluation;
     private List<Evaluation> testList;
-    private Course testCourse;
-    private Instructor testInstructor;
-    private Student testStudent;
 
     @Before
     public void init() {
-        testCourse = courseService.findOne(1);
-        testInstructor = instructorService.findOne(2);
-        testStudent = studentService.findOne(1);
         testEvaluation = new Evaluation();
         testEvaluation.setDate(Date.valueOf("2017-11-21"));
         testEvaluation.setComments("TestComments");
-        testEvaluation.setCourse(testCourse);
-        testEvaluation.setInstructor(testInstructor);
-        testEvaluation.setStudent(testStudent);
-
     }
 
 //    @After
