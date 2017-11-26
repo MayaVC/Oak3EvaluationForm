@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController //Om er een webapplicatie te kunnen van maken. Werkt met JSON.
-@RequestMapping("/evaluationform")
+@RequestMapping(value = "/evaluationform")
 public class EvaluationFormController {
 
     //Variables
@@ -37,6 +37,7 @@ public class EvaluationFormController {
     //Instructors
     @GetMapping("/instructors")
     public ResponseEntity findAllInstructors(){
+        System.out.println("Controller : @GetMapping(\"/instructors\")");
         return ResponseEntity.ok(instructorService.findAll());
     }
 
@@ -122,4 +123,8 @@ public class EvaluationFormController {
         return ResponseEntity.ok(evaluationService.addEvaluation(evaluation));
     }
 
+    @GetMapping("/questions/{category}")
+    public ResponseEntity findByCategory(@PathVariable Category category){
+        return ResponseEntity.ok(questionService.findByCategory(category));
+    }
 }

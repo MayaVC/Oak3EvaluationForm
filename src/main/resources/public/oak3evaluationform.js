@@ -7,7 +7,7 @@ $(document).ready(function(){
     $("#currentDate").html(day.toString()+"-"+month.toString()+"-"+year.toString());
 
 
-
+//******************** event listeners **********************************************
     $("#select-topic").change(function(e){
         var arraySubTopicsAndTopics = new Array();
         var arraySubTopics = $(this).val();
@@ -60,26 +60,88 @@ $(document).ready(function(){
 
 
 function findAllInstructors() {
+    console.log("findAllInstructors : function");
     $.ajax({
         type: "get",
         url: url + "/instructors",
         dataType: "json",
         success: function (response) {
             console.log("findAllInstructors : success");
+            console.log("response = " + response);
             let instructors = response;
-            let dynamicHTML;
+            let dynamicHTML = "";
             for (let instr of instructors){
-                dynamicHTML += `<option value=${instr.id}>${instr.id} - ${instr.name}</option>`;
+                dynamicHTML += `<option value=${instr.id}>${instr.id}  ${instr.name}</option>`;
             }
+            console.log("dynamicHTML = " + dynamicHTML);
             $("#dropdownlist-instructor").html(dynamicHTML);
         },
         error: function(){
-            console.log("Error find all instructors")
+            console.log("Error find all instructors");
         }
     });
 }
 
+function findAllCourses() {
+    console.log("findAllCourses : function");
+    $.ajax({
+        type: "get",
+        url: url + "/courses",
+        dataType: "json",
+        success: function (response) {
+            console.log("findAllCourses : success");
+            console.log("response = " + response);
+            let courses = response;
+            let dynamicHTML = "";
+            for (let aCourse of courses){
+                dynamicHTML += `<option value=${aCourse.id}>${aCourse.id}  ${aCourse.name}</option>`;
+            }
+            console.log("dynamicHTML = " + dynamicHTML);
+            $("#dropdownlist-course").html(dynamicHTML);
+        },
+        error: function(){
+            console.log("Error find all courses");
+        }
+    });
+}
+
+function findQuestionsByCategory(category) {
+    console.log("findQuestionsByCategory : function");
+    $.ajax({
+        type: "get",
+        url: url + "/questions/" + category,
+        dataType: "json",
+        success: function (response) {
+            console.log("findQuestionsByCategory : success");
+            console.log("response = " + response);
+            let questions = response;
+            let dynamicHTML = "";
+            for (let aQuestion of questions) {
+                dynamicHTML += `<option value=${aCourse.id}>${aCourse.id}  ${aCourse.name}</option>`;
+            }
+            console.log("dynamicHTML = " + dynamicHTML);
+            $("#dropdownlist-course").html(dynamicHTML);
+        },
+        error: function () {
+            console.log("Error find questions by category");
+        }
+    });
+}
+
+function findAllQuestions() {
+    findQuestionsByCategory("GENERAL");
+    findQuestionsByCategory("CONTENT");
+    findQuestionsByCategory("CLASSROOM");
+    findQuestionsByCategory("INSTRUCTOR");
+}
+
+//*********************** methods *******************************
 
 findAllInstructors(); //get list of instructors for dropdown list
+
+findAllCourses(); //get list of courses for dropdown list
+
+findAllQuestions(); //get list of questions by category
+
     
 });
