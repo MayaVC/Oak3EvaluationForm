@@ -7,7 +7,7 @@ $(document).ready(function(){
     $("#currentDate").html(day.toString()+"-"+month.toString()+"-"+year.toString());
 
 
-
+//******************** event listeners **********************************************
     $("#select-topic").change(function(e){
         var arraySubTopicsAndTopics = new Array();
         var arraySubTopics = $(this).val();
@@ -82,7 +82,33 @@ function findAllInstructors() {
     });
 }
 
+function findAllCourses() {
+    console.log("findAllCourses : function");
+    $.ajax({
+        type: "get",
+        url: url + "/courses",
+        dataType: "json",
+        success: function (response) {
+            console.log("findAllCourses : success");
+            console.log("response = " + response);
+            let courses = response;
+            let dynamicHTML = "";
+            for (let aCourse of courses){
+                dynamicHTML += `<option value=${aCourse.id}>${aCourse.id}  ${aCourse.name}</option>`;
+            }
+            console.log("dynamicHTML = " + dynamicHTML);
+            $("#dropdownlist-course").html(dynamicHTML);
+        },
+        error: function(){
+            console.log("Error find all courses");
+        }
+    });
+}
+
 
 findAllInstructors(); //get list of instructors for dropdown list
+
+findAllCourses(); //get list of courses for dropdown list
+
     
 });
