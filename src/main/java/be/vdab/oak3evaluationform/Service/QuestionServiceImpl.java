@@ -1,8 +1,10 @@
 package be.vdab.oak3evaluationform.Service;
 
+import be.vdab.oak3evaluationform.Model.Category;
 import be.vdab.oak3evaluationform.Model.Question;
 import be.vdab.oak3evaluationform.Repository.QuestionJPARepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -46,4 +48,11 @@ public class QuestionServiceImpl implements QuestionService {
     public List<Question> findAll() {
         return questionJPARepository.findAll();
     }
+
+    @Query
+    public List<Question> findByCategory(Category category){
+        return questionJPARepository.findByCategory(category);
+    }
 }
+
+
