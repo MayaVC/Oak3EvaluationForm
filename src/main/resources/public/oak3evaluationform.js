@@ -79,6 +79,7 @@ function findAllInstructors() {
     });
 }
 
+
 findAllInstructors(); //get list of instructors for dropdown list
     
 });
