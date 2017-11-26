@@ -105,6 +105,28 @@ function findAllCourses() {
     });
 }
 
+function findQuestionsByCategory(category) {
+    console.log("findQuestionsByCategory : function");
+    $.ajax({
+        type: "get",
+        url: url + "/questions/" + category,
+        dataType: "json",
+        success: function (response) {
+            console.log("findQuestionsByCategory : success");
+            console.log("response = " + response);
+            let questions = response;
+            let dynamicHTML = "";
+            for (let aQuestion of questions) {
+                dynamicHTML += `<option value=${aCourse.id}>${aCourse.id}  ${aCourse.name}</option>`;
+            }
+            console.log("dynamicHTML = " + dynamicHTML);
+            $("#dropdownlist-course").html(dynamicHTML);
+        },
+        error: function () {
+            console.log("Error find questions by category");
+        }
+    });
+}
 
 findAllInstructors(); //get list of instructors for dropdown list
 
