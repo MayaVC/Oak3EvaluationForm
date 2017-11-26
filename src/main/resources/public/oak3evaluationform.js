@@ -128,9 +128,20 @@ function findQuestionsByCategory(category) {
     });
 }
 
+function findAllQuestions() {
+    findQuestionsByCategory("GENERAL");
+    findQuestionsByCategory("CONTENT");
+    findQuestionsByCategory("CLASSROOM");
+    findQuestionsByCategory("INSTRUCTOR");
+}
+
+//*********************** methods *******************************
+
 findAllInstructors(); //get list of instructors for dropdown list
 
 findAllCourses(); //get list of courses for dropdown list
+
+findAllQuestions(); //get list of questions by category
 
     
 });
