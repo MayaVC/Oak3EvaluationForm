@@ -157,6 +157,7 @@ function findQuestionsByCategory(category) {
                                 </div>`;
             }
             console.log("dynamicHTML = " + dynamicHTML);
+            category = category.toLowerCase();
             $("#questions-cat-"+category).html(dynamicHTML);
         },
         error: function () {
