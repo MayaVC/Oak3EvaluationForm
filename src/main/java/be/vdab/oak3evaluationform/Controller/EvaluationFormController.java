@@ -128,8 +128,8 @@ public class EvaluationFormController {
         return ResponseEntity.ok(questionService.findByCategory(category));
     }
 
-    @GetMapping("/subtopics/{topic}")
-    public ResponseEntity findBySubTopicsByTopic(@PathVariable int topicId) {
-        return ResponseEntity.ok(subtopicService.findByTopicId(topicId));
+    @GetMapping("/subtopics/{topicId}")
+    public ResponseEntity findSubTopicsByTopic(@PathVariable int topicId) {
+        return ResponseEntity.ok(subtopicService.findSubtopicByTopicId(topicId));
     }
 }
