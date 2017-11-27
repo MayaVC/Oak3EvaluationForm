@@ -21,7 +21,7 @@ import static org.junit.Assert.*;
 @Ignore
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Oak3evaluationformApplication.class)
-@ActiveProfiles("maya")
+//@ActiveProfiles("maya")
 public class InstructorServiceImplTest {
 
 
