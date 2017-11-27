@@ -13,6 +13,8 @@ public class Subtopic {
     @NotNull
     private String name;
     @ManyToMany(mappedBy = "subtopics")
+
+
     private Set<Student> students;
 
     public Subtopic() {
