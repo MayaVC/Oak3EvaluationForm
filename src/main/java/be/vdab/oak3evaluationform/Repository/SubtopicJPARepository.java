@@ -11,8 +11,6 @@ import java.util.List;
 
 public interface SubtopicJPARepository extends JpaRepository<Subtopic, Integer> {
 
-    @Query(value = "select sub from Subtopic sub where sub.topic_id = :topicid")
-    List<Subtopic> findSubtopicByTopicId(@Param("topicid") int topicId);
-
-    List<Subtopic> findSubtopicsByTopicId ();
+    @Query("select sub from subtopic sub where sub.topic_id = :topicid")
+    List<Subtopic> findByTopicId(@Param("topicid") int topicId);
 }
