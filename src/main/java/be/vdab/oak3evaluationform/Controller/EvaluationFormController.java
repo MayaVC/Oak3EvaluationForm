@@ -124,7 +124,12 @@ public class EvaluationFormController {
     }
 
     @GetMapping("/questions/{category}")
-    public ResponseEntity findByCategory(@PathVariable Category category){
+    public ResponseEntity findQuestionsByCategory(@PathVariable Category category){
         return ResponseEntity.ok(questionService.findByCategory(category));
+    }
+
+    @GetMapping("/subtopics/{topic}")
+    public ResponseEntity findBySubTopicsByTopic(@PathVariable Topic topic) {
+        return ResponseEntity.ok(subtopicService.findByTopic(topic));
     }
 }

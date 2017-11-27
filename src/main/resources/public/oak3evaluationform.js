@@ -8,6 +8,7 @@ $(document).ready(function(){
 
 
 //******************** event listeners **********************************************
+
     $("#select-topic").change(function(e){
         var arraySubTopicsAndTopics = new Array();
         var arraySubTopics = $(this).val();
@@ -60,20 +61,20 @@ $(document).ready(function(){
 
 
 function findAllInstructors() {
-    console.log("findAllInstructors : function");
+    //console.log("findAllInstructors : function");
     $.ajax({
         type: "get",
         url: url + "/instructors",
         dataType: "json",
         success: function (response) {
-            console.log("findAllInstructors : success");
+            //console.log("findAllInstructors : success");
             console.log("response = " + response);
             let instructors = response;
             let dynamicHTML = "";
             for (let instr of instructors){
                 dynamicHTML += `<option value=${instr.id}>${instr.id}  ${instr.name}</option>`;
             }
-            console.log("dynamicHTML = " + dynamicHTML);
+            //console.log("dynamicHTML = " + dynamicHTML);
             $("#dropdownlist-instructor").html(dynamicHTML);
         },
         error: function(){
@@ -83,20 +84,20 @@ function findAllInstructors() {
 }
 
 function findAllCourses() {
-    console.log("findAllCourses : function");
+    //console.log("findAllCourses : function");
     $.ajax({
         type: "get",
         url: url + "/courses",
         dataType: "json",
         success: function (response) {
-            console.log("findAllCourses : success");
+            //console.log("findAllCourses : success");
             console.log("response = " + response);
             let courses = response;
             let dynamicHTML = "";
             for (let aCourse of courses){
                 dynamicHTML += `<option value=${aCourse.id}>${aCourse.id}  ${aCourse.name}</option>`;
             }
-            console.log("dynamicHTML = " + dynamicHTML);
+            //console.log("dynamicHTML = " + dynamicHTML);
             $("#dropdownlist-course").html(dynamicHTML);
         },
         error: function(){
@@ -106,21 +107,58 @@ function findAllCourses() {
 }
 
 function findQuestionsByCategory(category) {
-    console.log("findQuestionsByCategory : function");
+    //console.log("findQuestionsByCategory : function");
     $.ajax({
         type: "get",
         url: url + "/questions/" + category,
         dataType: "json",
         success: function (response) {
             console.log("findQuestionsByCategory : success");
-            console.log("response = " + response);
+            //console.log("response = " + response);
             let questions = response;
             let dynamicHTML = "";
             for (let aQuestion of questions) {
-                dynamicHTML += `<option value=${aCourse.id}>${aCourse.id}  ${aCourse.name}</option>`;
+                dynamicHTML += `<div class="col-md-5 col-sm-12 col-xs-12">
+                                    <label>
+                                        ${aQuestion.name}
+                                    </label>
+                                </div>
+                                <div class="col-md-7 col-sm-12 col-xs-12">
+                                    <div class="form-check form-check-inline">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name=${aQuestion.category}Q${aQuestion.id} id=${aQuestion.id} value="0">0
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name=${aQuestion.category}Q${aQuestion.id} id=${aQuestion.id} value="1">1
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name=${aQuestion.category}Q${aQuestion.id} id=${aQuestion.id} value="2">2
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name=${aQuestion.category}Q${aQuestion.id} id=${aQuestion.id} value="3">3
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name=${aQuestion.category}Q${aQuestion.id} id=${aQuestion.id} value="4">4
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name=${aQuestion.category}Q${aQuestion.id} id=${aQuestion.id} value="5">5
+                                        </label>
+                                    </div>
+                                </div>`;
             }
-            console.log("dynamicHTML = " + dynamicHTML);
-            $("#dropdownlist-course").html(dynamicHTML);
+            //console.log("dynamicHTML = " + dynamicHTML);
+            category = category.toLowerCase();
+            $("#questions-cat-"+category).html(dynamicHTML);
         },
         error: function () {
             console.log("Error find questions by category");
@@ -141,7 +179,7 @@ findAllInstructors(); //get list of instructors for dropdown list
 
 findAllCourses(); //get list of courses for dropdown list
 
-findAllQuestions(); //get list of questions by category
+findAllQuestions(); //show list of questions by category
 
     
 });

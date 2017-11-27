@@ -1,6 +1,7 @@
 package be.vdab.oak3evaluationform.Service;
 
 import be.vdab.oak3evaluationform.Model.Subtopic;
+import be.vdab.oak3evaluationform.Model.Topic;
 import be.vdab.oak3evaluationform.Repository.SubtopicJPARepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,5 +44,10 @@ public class SubtopicServiceImpl implements SubtopicService {
     @Override
     public List<Subtopic> findAll() {
         return subtopicJPARepository.findAll();
+    }
+
+    @Override
+    public List<Subtopic> findByTopic(Topic topic) {
+        return subtopicJPARepository.findByTopic(topic);
     }
 }
