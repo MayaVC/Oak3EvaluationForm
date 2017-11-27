@@ -126,7 +126,7 @@ function findQuestionsByCategory(category) {
                                 <div class="col-md-7 col-sm-12 col-xs-12">
                                     <div class="form-check form-check-inline">
                                         <label class="form-check-label">
-                                            <input class="form-check-input" type="radio" name=${aQuestion.category} id="score0" value="0">0
+                                            <input class="form-check-input" type="radio" name=${aQuestion.category}Q${aQuestion.id} id=${aQuestion.id} value="0">0
                                         </label>
                                     </div>
                                     <div class="form-check form-check-inline">
