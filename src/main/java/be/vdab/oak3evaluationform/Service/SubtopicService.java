@@ -13,5 +13,5 @@ public interface SubtopicService {
 
     List<Subtopic> findAll();
 
-    List<Subtopic> findSubtopicsByTopic(int topicId);
+    List<Subtopic> findSubtopicsByTopicId(Topic topic);
 }

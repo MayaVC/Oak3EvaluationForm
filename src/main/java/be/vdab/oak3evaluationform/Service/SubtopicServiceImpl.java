@@ -47,7 +47,7 @@ public class SubtopicServiceImpl implements SubtopicService {
     }
 
     @Override
-    public List<Subtopic> findSubtopicsByTopic(int topicId) {
-        return subtopicJPARepository.findSubtopicsByTopic(topicId);
+    public List<Subtopic> findSubtopicsByTopicId(Topic topic) {
+        return subtopicJPARepository.findSubtopicsByTopic(topic);
     }
 }
