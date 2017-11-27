@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Ignore
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Oak3evaluationformApplication.class)
-@ActiveProfiles("maya")
+//@ActiveProfiles("maya")
 public class CourseServiceImplTest {
 
     private List<Course> courses;
