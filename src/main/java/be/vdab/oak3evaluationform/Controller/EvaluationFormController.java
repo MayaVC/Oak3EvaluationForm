@@ -129,7 +129,7 @@ public class EvaluationFormController {
     }
 
     @GetMapping("/subtopics/{topic}")
-    public ResponseEntity findBySubTopicsByTopic(@PathVariable Topic topic) {
-        return ResponseEntity.ok(subtopicService.findByTopic(topic));
+    public ResponseEntity findBySubTopicsByTopic(@PathVariable int topicId) {
+        return ResponseEntity.ok(subtopicService.findByTopicId(topicId));
     }
 }
