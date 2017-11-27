@@ -8,6 +8,7 @@ $(document).ready(function(){
 
 
 //******************** event listeners **********************************************
+
     $("#select-topic").change(function(e){
         var arraySubTopicsAndTopics = new Array();
         var arraySubTopics = $(this).val();
@@ -117,10 +118,46 @@ function findQuestionsByCategory(category) {
             let questions = response;
             let dynamicHTML = "";
             for (let aQuestion of questions) {
-                dynamicHTML += `<option value=${aCourse.id}>${aCourse.id}  ${aCourse.name}</option>`;
+                dynamicHTML += `<div class="col-md-5 col-sm-12 col-xs-12">
+                                    <label>
+                                        ${aQuestion.name}
+                                    </label>
+                                </div>
+                                <div class="col-md-7 col-sm-12 col-xs-12">
+                                    <div class="form-check form-check-inline">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name=${aQuestion.category} id="score0" value="0">0
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name=${aQuestion.category} id="score1" value="1">1
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name=${aQuestion.category} id="score2" value="2">2
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name=${aQuestion.category} id="score3" value="3">3
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name=${aQuestion.category} id="score4" value="4">4
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name=${aQuestion.category} id="score5" value="5">5
+                                        </label>
+                                    </div>
+                                </div>`;
             }
             console.log("dynamicHTML = " + dynamicHTML);
-            $("#dropdownlist-course").html(dynamicHTML);
+            $("#questions-cat-general").html(dynamicHTML);
         },
         error: function () {
             console.log("Error find questions by category");
@@ -130,9 +167,9 @@ function findQuestionsByCategory(category) {
 
 function findAllQuestions() {
     findQuestionsByCategory("GENERAL");
-    findQuestionsByCategory("CONTENT");
-    findQuestionsByCategory("CLASSROOM");
-    findQuestionsByCategory("INSTRUCTOR");
+    //findQuestionsByCategory("CONTENT");
+    //findQuestionsByCategory("CLASSROOM");
+    //findQuestionsByCategory("INSTRUCTOR");
 }
 
 //*********************** methods *******************************
