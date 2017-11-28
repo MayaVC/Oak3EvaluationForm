@@ -2,6 +2,8 @@ package be.vdab.oak3evaluationform.Model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -14,8 +16,8 @@ public class Course {
     @NotNull
     private String name;
 
-    @ManyToMany
-    @JoinTable(name = "course_instructor", joinColumns = @JoinColumn(name = "instructor_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "course_id", referencedColumnName = "id"))
+    @ManyToMany()
+    @JoinTable(name = "course_instructor", joinColumns = @JoinColumn(name = "course_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "instructor_id", referencedColumnName = "id"))
     private Set<Instructor> instructors;
 
 //    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)

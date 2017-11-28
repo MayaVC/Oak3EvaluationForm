@@ -1,7 +1,12 @@
 package be.vdab.oak3evaluationform.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import javax.validation.OverridesAttribute;
 import javax.validation.constraints.NotNull;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -15,7 +20,8 @@ public class Instructor {
     @NotNull
     private String name;
 
-    @ManyToMany(mappedBy = "instructors")
+    @JsonIgnore
+    @ManyToMany( mappedBy = "instructors")
     private Set<Course> courses;
 
 //    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
