@@ -101,6 +101,11 @@ public class EvaluationFormController {
         return ResponseEntity.ok(subtopicService.addSubtopic(subtopic));
     }
 
+    @GetMapping("/subtopics/{topicId}")
+    public ResponseEntity findSubTopicsByTopic(@PathVariable int topicId) {
+        return ResponseEntity.ok(subtopicService.findSubtopicsByTopicId(topicId));
+    }
+
     //Students
     @GetMapping("/students")
     public ResponseEntity findAllStudents(){
@@ -126,10 +131,5 @@ public class EvaluationFormController {
     @GetMapping("/questions/{category}")
     public ResponseEntity findQuestionsByCategory(@PathVariable Category category){
         return ResponseEntity.ok(questionService.findByCategory(category));
-    }
-
-    @GetMapping("/subtopics/{topic}")
-    public ResponseEntity findSubTopicsByTopic(@PathVariable Topic topic) {
-        return ResponseEntity.ok(subtopicService.findSubtopicsByTopicId(topic));
     }
 }

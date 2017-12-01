@@ -109,28 +109,15 @@
                 <div class="form-group">
                     <div class="row" id="topic-comment">
                         <div class="col-md-6 col-sm-12 xol-xs-12">
-                            <label for="select-topic">Email notification topics</label>
-                            <select multiple class="form-control" id="select-topic">
-                                <optgroup value="1" label="Java">
-                                    <option value="1">Fundamentals</option>
-                                    <option value="2">JDBC</option>
-                                    <option value="3">Spring boot</option>
-                                </optgroup>
-                                <optgroup value="2" label="HTML/CSS">
-                                    <option value="1">Basic</option>
-                                    <option value="2">Bootsstrap</option>
-                                    <option value="3">Javascript</option>
-                                </optgroup>
-                                <optgroup value="3" label="Mobile Apps">
-                                    <option value="1">Development</option>
-                                    <option value="2">Android</option>
-                                </optgroup>
+                            <label for="select-subtopic">Email notification topics</label>
+                            <select multiple class="form-control" id="select-subtopic">
+                                //dynamicly generated topics and subtopics
                             </select>
                         </div>
                         <div class="col-md-6 col-sm-12 xol-xs-12">
                             <div class="form-group">
-                                <label>Comments/suggestion</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <label for="CommentsTextarea">Comments/suggestion</label>
+                                <textarea class="form-control" id="CommentsTextarea" rows="3"></textarea>
                             </div>
                         </div>
                     </div>
@@ -139,6 +126,7 @@
                 <button type="submit" class="btn btn-success">Submit</button>
             </form>
         </div>
+          <br>
         <footer style="text-align:center">&copy M###-M###-M####</footer>
       </div>
         <!-- Optional JavaScript -->

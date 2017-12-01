@@ -1,5 +1,7 @@
     package be.vdab.oak3evaluationform.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Set;
@@ -12,10 +14,12 @@ public class Subtopic {
     private int Id;
     @NotNull
     private String name;
+    @JsonBackReference
     @ManyToMany(mappedBy = "studentSubtopics")
     private Set<Student> students;
 
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "topic_id", nullable = false)
     private Topic topic;
 

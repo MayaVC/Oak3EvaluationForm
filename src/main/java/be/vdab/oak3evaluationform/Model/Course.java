@@ -1,7 +1,11 @@
 package be.vdab.oak3evaluationform.Model;
 
+import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.databind.annotation.JsonAppend;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -16,7 +20,8 @@ public class Course {
     @NotNull
     private String name;
 
-    @ManyToMany()
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonManagedReference
     @JoinTable(name = "course_instructor", joinColumns = @JoinColumn(name = "course_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "instructor_id", referencedColumnName = "id"))
     private Set<Instructor> instructors;
 
@@ -67,5 +72,23 @@ public class Course {
                 ", instructors=" + instructors +
 //                ", evaluations=" + evaluations +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Course)) return false;
+
+        Course course = (Course) o;
+
+        if (getId() != course.getId()) return false;
+        return getName().equals(course.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId();
+        result = 31 * result + getName().hashCode();
+        return result;
     }
 }

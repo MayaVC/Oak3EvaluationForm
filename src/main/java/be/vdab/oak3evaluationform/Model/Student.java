@@ -1,5 +1,7 @@
 package be.vdab.oak3evaluationform.Model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
@@ -28,6 +30,7 @@ public class Student {
 //    private Set<Evaluation> evaluations = new TreeSet<>();
 
     @ManyToMany
+    @JsonManagedReference
     @JoinTable(name = "student_subtopic", joinColumns = @JoinColumn(name = "student_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "subtopic_id", referencedColumnName = "id"))
     private Set<Subtopic> studentSubtopics;
 

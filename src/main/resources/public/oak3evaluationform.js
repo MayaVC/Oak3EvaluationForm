@@ -60,15 +60,15 @@ $(document).ready(function(){
 //*******************functions ************************************************************************
 
 
-function findAllInstructors() {
-    //console.log("findAllInstructors : function");
+function showAllInstructors() {
+    //console.log("showAllInstructors : function");
     $.ajax({
         type: "get",
         url: url + "/instructors",
         dataType: "json",
         success: function (response) {
-            //console.log("findAllInstructors : success");
-            console.log("response = " + response);
+            //console.log("showAllInstructors : success");
+            //console.log("response = " + response);
             let instructors = response;
             let dynamicHTML = "";
             for (let instr of instructors){
@@ -78,20 +78,20 @@ function findAllInstructors() {
             $("#dropdownlist-instructor").html(dynamicHTML);
         },
         error: function(){
-            console.log("Error find all instructors");
+            console.log("Error show all instructors");
         }
     });
 }
 
-function findAllCourses() {
-    //console.log("findAllCourses : function");
+function showAllCourses() {
+    //console.log("showAllCourses : function");
     $.ajax({
         type: "get",
         url: url + "/courses",
         dataType: "json",
         success: function (response) {
-            //console.log("findAllCourses : success");
-            console.log("response = " + response);
+            //console.log("showAllCourses : success");
+            //console.log("response = " + response);
             let courses = response;
             let dynamicHTML = "";
             for (let aCourse of courses){
@@ -101,19 +101,19 @@ function findAllCourses() {
             $("#dropdownlist-course").html(dynamicHTML);
         },
         error: function(){
-            console.log("Error find all courses");
+            console.log("Error show all courses");
         }
     });
 }
 
-function findQuestionsByCategory(category) {
-    //console.log("findQuestionsByCategory : function");
+function showQuestionsByCategory(category) {
+    //console.log("showQuestionsByCategory : function");
     $.ajax({
         type: "get",
         url: url + "/questions/" + category,
         dataType: "json",
         success: function (response) {
-            console.log("findQuestionsByCategory : success");
+            //console.log("showQuestionsByCategory : success");
             //console.log("response = " + response);
             let questions = response;
             let dynamicHTML = "";
@@ -161,25 +161,84 @@ function findQuestionsByCategory(category) {
             $("#questions-cat-"+category).html(dynamicHTML);
         },
         error: function () {
-            console.log("Error find questions by category");
+            console.log("Error show questions by category");
         }
     });
 }
 
-function findAllQuestions() {
-    findQuestionsByCategory("GENERAL");
-    findQuestionsByCategory("CONTENT");
-    findQuestionsByCategory("CLASSROOM");
-    findQuestionsByCategory("INSTRUCTOR");
+function showAllQuestions() {
+    showQuestionsByCategory("GENERAL");
+    showQuestionsByCategory("CONTENT");
+    showQuestionsByCategory("CLASSROOM");
+    showQuestionsByCategory("INSTRUCTOR");
+}
+
+function showAllTopics() {
+    //console.log("showAllTopics : function");
+    $.ajax({
+        type: "get",
+        url: url + "/topics",
+        dataType: "json",
+        success: function (response) {
+            //console.log("showAllTopics : success");
+            //console.log("response = " + response);
+            let topics = response;
+            let dynamicHTML = "";
+            for (let aTopic of topics){
+                dynamicHTML += `<optgroup id=topic${aTopic.id} label=${aTopic.name} class="topic">
+                                </optgroup>`;
+            }
+            //console.log("dynamicHTML = " + dynamicHTML);
+            $("#select-subtopic").html(dynamicHTML);
+            showAllSubtopics(); //show all subtopics of each topic
+        },
+        error: function(){
+            console.log("Error show all topics");
+        }
+    });
+}
+
+function showAllSubtopics() {
+    //get all <optgroup> elements in document
+    let allOptgroups = document.getElementsByClassName("topic");
+    for (let aOptgroup of allOptgroups) {
+        // extract id of optgroup by deleting the word "topic" of "topic#"
+        let aTopicId = aOptgroup.id.substring(5);
+        console.log("optgroup id = " + aTopicId);
+        showAllSubtopicsByTopicId(aTopicId);
+    }
+}
+
+function showAllSubtopicsByTopicId(topicId) {
+    //console.log("findAllSubTopicsByTopicId : function");
+    $.ajax({
+        type: "get",
+        url: url + "/subtopics/"+topicId,
+        dataType: "json",
+        success: function (response) {
+            console.log("findAllSubtopicsByTopiId : success");
+            let subtopics = response;
+            let dynamicHTML = "";
+            for (let aSubtopic of subtopics){
+                dynamicHTML += `<option value=${aSubtopic.id}>${aSubtopic.name}</option>`;
+            }
+            console.log("dynamicHTML subtopics= " + dynamicHTML);
+            $("#topic"+topicId).html(dynamicHTML);
+        },
+        error: function(){
+            console.log("Error find all subtopicsByTopicId");
+        }
+    });
 }
 
 //*********************** methods *******************************
 
-findAllInstructors(); //get list of instructors for dropdown list
+showAllInstructors(); //get list of instructors for dropdown list
 
-findAllCourses(); //get list of courses for dropdown list
+showAllCourses(); //get list of courses for dropdown list
 
-findAllQuestions(); //show list of questions by category
+showAllQuestions(); //show list of questions by category
 
-    
+showAllTopics(); //show all topics
+
 });
